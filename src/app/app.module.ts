@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AngularMaterialModule } from './components/shared/angular-material/angular-material/angular-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddEditProductoComponent } from './components/add-edit-producto/add-edit-producto.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AddEditProductoComponent } from './components/add-edit-producto/add-edi
     BrowserModule,
     AppRoutingModule,
     AngularMaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

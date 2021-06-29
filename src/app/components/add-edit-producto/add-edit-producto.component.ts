@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-edit-producto.component.css']
 })
 export class AddEditProductoComponent implements OnInit {
-
+  value = 'Borrar';
   constructor() { }
 
   ngOnInit(): void {
