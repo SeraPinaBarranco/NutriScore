@@ -7,6 +7,7 @@ import {MatIconModule} from '@angular/material/icon';
 
 
 
+
 @NgModule({
   declarations: [
     
@@ -16,10 +17,11 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatInputModule,
     MatIconModule
+    
   ],
   exports: [
     MatButtonModule,
-    MatInputModule,
+    MatInputModule,    
     MatIconModule
   ]
 })

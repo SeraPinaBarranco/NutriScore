@@ -1,38 +1,80 @@
 <div class="container mt-3">
-    <div class="row text-center">
-        <span>Datos de producto</span>
-    </div>
+  <div class="row text-center">
+    <span>Datos de producto</span>
+  </div>
 </div>
 
 <div class="container">
-   <form>
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Nombre producto</mat-label>
-        <input matInput placeholder="Introduce el nombre" value="">
-    </mat-form-field>
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <form (ngSubmit)="submit()" [formGroup]="myForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Nombre producto</mat-label>
+          <input matInput placeholder="Introduce el nombre" value="" 
+            formControlName="nombre"/>
+        </mat-form-field>
+        <div class="errores" *ngIf="myForm.get('nombre')?.hasError('required') && myForm.get('nombre')?.touched"><span>Campo Requerido</span></div>
+        <div class="errores" *ngIf="myForm.controls['nombre'].hasError('maxlength')"><span>Exceso de caracteres</span></div>
 
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Calorias</mat-label>
-        <input type="number" matInput placeholder="Introduce las calorias" value="">
-    </mat-form-field>
-      
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Proteinas</mat-label>
-        <input type="number" matInput placeholder="Introduce las proteinas" value="">
-    </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Calorias</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Introduce las calorias"
+            value=""
+            formControlName="calorias"
+          />
+        </mat-form-field>
+        <div class="errores" *ngIf="myForm.get('calorias')?.hasError('required') && myForm.get('calorias')?.touched"><span>Campo Requerido</span></div>
 
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Grasas</mat-label>
-        <input type="number" matInput placeholder="Introduce las grasas" value="">
-    </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Proteinas</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Introduce las proteinas"
+            value=""
+            formControlName="proteinas"
+          />
+        </mat-form-field>
+        <div class="errores" *ngIf="myForm.get('proteinas')?.hasError('required') && myForm.get('proteinas')?.touched"><span>Campo Requerido</span></div>
 
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Hidratos de carbono</mat-label>
-        <input type="number" matInput placeholder="Introduce los hidratos de carbono" value="">
-    </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Grasas</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Introduce las grasas"
+            value=""
+            formControlName="grasas"
+          />
+        </mat-form-field>
+        <div class="errores" *ngIf="myForm.get('grasas')?.hasError('required') && myForm.get('grasas')?.touched"><span>Campo Requerido</span></div>
 
-    <button type="success" class="btn btn-primary">Primary</button>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Hidratos de carbono</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Introduce los hidratos de carbono"
+            value=""
+            formControlName="hidratos"
+          />
+        </mat-form-field>
+        <div class="errores" *ngIf="myForm.get('hidratos')?.hasError('required') && myForm.get('hidratos')?.touched"><span>Campo Requerido</span></div>
 
-    </form> 
+        <div class="d-flex justify-content-around">
+          <button [disabled]="myForm.invalid" type="success" class="btn btn-primary btn-block">
+            Guardar
+          </button>
+          <span class="material-icons reset-color" (click)="resetearForm()"> restart_alt </span>
+        </div>
+
+
+
+
+      </form>
+    </div>
+  </div>
 </div>
-
