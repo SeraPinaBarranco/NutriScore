@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "nutriscore-811b9": {
+      "hosting": {
+        "NutriScore": [
+          "nutriscore-811b9"
+        ]
+      }
+    }
+  }
+}
