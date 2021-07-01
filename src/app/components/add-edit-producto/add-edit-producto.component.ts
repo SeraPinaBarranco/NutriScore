@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Productos } from 'src/app/models/productos.model';
+import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
   selector: 'app-add-edit-producto',
@@ -9,10 +10,10 @@ import { Productos } from 'src/app/models/productos.model';
 })
 export class AddEditProductoComponent implements OnInit {
   myForm: FormGroup = new FormGroup({});  
-  private producto: Productos = new Productos;
+  private producto: Productos[] = [];
 
   value = 'Borrar';
-  constructor() {
+  constructor(private _productoService: ProductoService) {
     
   }
 
@@ -38,6 +39,15 @@ export class AddEditProductoComponent implements OnInit {
 
   resetearForm(){
     this.createForm();
+  }
+
+  obtenerProductos(){
+    this._productoService.obternerProductos().subscribe(prod => {
+      //console.log(prod);
+      prod.forEach((p:any) => {
+          console.log(p);
+      })
+    })
   }
 
 }
