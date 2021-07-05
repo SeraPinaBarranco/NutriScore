@@ -7,10 +7,10 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-6">
-      <form (ngSubmit)="submit()" [formGroup]="myForm">
+      <form (ngSubmit)="guardarProducto()" [formGroup]="myForm">
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Nombre producto</mat-label>
-          <input matInput placeholder="Introduce el nombre" value="" 
+          <input matInput placeholder="Introduce el nombre" value=""
             formControlName="nombre"/>
         </mat-form-field>
         <div class="errores" *ngIf="myForm.get('nombre')?.hasError('required') && myForm.get('nombre')?.touched"><span>Campo Requerido</span></div>
@@ -68,10 +68,10 @@
           <button [disabled]="myForm.invalid" type="success" class="btn btn-primary btn-block">
             Guardar
           </button>
-          
-          <span class="material-icons reset-color" (click)="obtenerProductos()"> restart_alt </span>
 
-          
+          <span class="material-icons reset-color" > restart_alt </span>
+
+
         </div>
 
 

@@ -13,8 +13,11 @@ export class ProductoService {
   constructor(private firestore: AngularFirestore) { }
 
   obternerProductos():Observable<any>{
-    return this.firestore.collection('productos').valueChanges();
+    return this.firestore.collection('productos').snapshotChanges();
   }
 
- 
+  guardarProducto(producto:Productos):Promise<any>{
+    return this.firestore.firestore.collection('productos').add(producto);
+  }
+
 }

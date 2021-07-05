@@ -9,12 +9,12 @@ import { ProductoService } from 'src/app/services/producto.service';
   styleUrls: ['./add-edit-producto.component.css']
 })
 export class AddEditProductoComponent implements OnInit {
-  myForm: FormGroup = new FormGroup({});  
+  myForm: FormGroup = new FormGroup({});
   private producto: Productos[] = [];
 
   value = 'Borrar';
   constructor(private _productoService: ProductoService) {
-    
+
   }
 
   ngOnInit(): void {
@@ -33,7 +33,7 @@ export class AddEditProductoComponent implements OnInit {
   }
 
   submit(){
-    datos: 
+    datos:
     console.log(this.myForm.controls);
   }
 
@@ -41,13 +41,29 @@ export class AddEditProductoComponent implements OnInit {
     this.createForm();
   }
 
-  obtenerProductos(){
+  /*obtenerProductos(){
     this._productoService.obternerProductos().subscribe(prod => {
       //console.log(prod);
       prod.forEach((p:any) => {
-          console.log(p);
+          console.log(p.payload.doc.id);
       })
     })
-  }
+  }*/
 
+  guardarProducto(){
+    const PROD: Productos={
+      nombre: this.myForm.value.nombre,
+      calorias:this.myForm.value.calorias,
+      proteinas: this.myForm.value.proteinas,
+      grasas:this.myForm.value.grasas,
+      hidratos:this.myForm.value.hidratos
+    }
+
+    this._productoService.guardarProducto(PROD).then(()=>{
+      alert("Guardada");
+    },error=>{
+      console.log(error);
+    })
+
+  }
 }
