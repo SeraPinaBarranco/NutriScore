@@ -16,12 +16,14 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { ListarProductosComponent } from './components/listar-productos/listar-productos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    AddEditProductoComponent
+    AddEditProductoComponent,
+    ListarProductosComponent
   ],
   imports: [
     BrowserModule,

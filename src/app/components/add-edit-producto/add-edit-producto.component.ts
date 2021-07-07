@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { Productos } from 'src/app/models/productos.model';
 import { ProductoService } from 'src/app/services/producto.service';
+import swal from'sweetalert2';
 
 @Component({
   selector: 'app-add-edit-producto',
@@ -19,6 +21,7 @@ export class AddEditProductoComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+    
   }
 
   createForm(){
@@ -33,7 +36,7 @@ export class AddEditProductoComponent implements OnInit {
   }
 
   submit(){
-    datos:
+    
     console.log(this.myForm.controls);
   }
 
@@ -52,6 +55,7 @@ export class AddEditProductoComponent implements OnInit {
 
   guardarProducto(){
     const PROD: Productos={
+      
       nombre: this.myForm.value.nombre,
       calorias:this.myForm.value.calorias,
       proteinas: this.myForm.value.proteinas,
@@ -60,7 +64,8 @@ export class AddEditProductoComponent implements OnInit {
     }
 
     this._productoService.guardarProducto(PROD).then(()=>{
-      alert("Guardada");
+      
+      swal.fire("Titulo",`Producto -${PROD.nombre.toUpperCase()}- guardado con exito!!!` ,"success")
     },error=>{
       console.log(error);
     })

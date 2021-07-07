@@ -1,16 +1,18 @@
 export class Productos{
+    id?;
 
-    nombre: string;
-    calorias:number;
-    proteinas: number;
-    grasas:number;
-    hidratos:number;
+    nombre;
+    calorias;
+    proteinas;
+    grasas;
+    hidratos;
 
-    constructor(){
-        this.nombre="";
-        this.calorias=0;
-        this.proteinas=0;
-        this.grasas=0;
-        this.hidratos=0;
+    constructor(nombre: string,calorias:number, proteinas: number, grasas:number,hidratos:number, id?: string ){
+        this.nombre=nombre;
+        this.calorias=calorias;
+        this.proteinas=proteinas;
+        this.grasas=grasas;
+        this.hidratos=hidratos;
+        this.id = id;
     }
 }
