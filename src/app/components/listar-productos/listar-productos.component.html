@@ -1,9 +1,14 @@
 <div class="container">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <div class="row" *ngIf="mostrarSpinner">
+      <app-spinner></app-spinner>
+    </div>
+
+    <table *ngIf="!mostrarSpinner" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!--<table>-->
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
-      
+
         <!-- Position Column -->
         <ng-container matColumnDef="nombre">
           <th mat-header-cell *matHeaderCellDef> Nombre </th>
@@ -38,12 +43,12 @@
         <div *ngFor="let item of dataSource.data">
           <span>{{item.nombre}}</span>
         </div>-->
-      
-       
-      
+
+
+
         <tr mat-header-row *matHeaderRowDef="columnas"></tr>
         <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
       </table>
-      
-      
+
+
 </div>
