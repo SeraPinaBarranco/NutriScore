@@ -1,19 +1,48 @@
 <div class="container">
-    <table mat-table [dataSource]="dataSource.data" class="mat-elevation-z8">
-
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!--<table>-->
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
       
         <!-- Position Column -->
         <ng-container matColumnDef="nombre">
           <th mat-header-cell *matHeaderCellDef> Nombre </th>
-          <td mat-cell *matCellDef="let element"> {{element}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
         </ng-container>
+
+        <ng-container matColumnDef="calorias">
+          <th mat-header-cell *matHeaderCellDef> Calorias </th>
+          <td mat-cell *matCellDef="let element"> {{element.calorias}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="proteinas">
+          <th mat-header-cell *matHeaderCellDef> Proteinas </th>
+          <td mat-cell *matCellDef="let element"> {{element.proteinas}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="grasas">
+          <th mat-header-cell *matHeaderCellDef> Grasas </th>
+          <td mat-cell *matCellDef="let element"> {{element.grasas}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="hidratos">
+          <th mat-header-cell *matHeaderCellDef> Hidratos </th>
+          <td mat-cell *matCellDef="let element"> {{element.hidratos}} </td>
+        </ng-container>
+
+        <!--
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        <div *ngFor="let item of dataSource.data">
+          <span>{{item.nombre}}</span>
+        </div>-->
       
        
       
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
       </table>
       
       
