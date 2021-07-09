@@ -11,6 +11,7 @@ import { ProductoService } from 'src/app/services/producto.service';
 export class ListarProductosComponent implements OnInit {
   product: Productos;
   listaProductos: Productos[] = [];
+  mostrarSpinner = false;
 
   columnas: string[] = [
     'nombre',
@@ -36,6 +37,9 @@ export class ListarProductosComponent implements OnInit {
     let s = 0;
     //Trae todos los registros del Service
     this._productoService.obternerProductos().subscribe((res) => {
+
+      this.mostrarSpinner = true;
+
       res.forEach((p: any) => {
         this.product = {
           nombre: p.payload.doc.data().nombre,
@@ -46,12 +50,17 @@ export class ListarProductosComponent implements OnInit {
           hidratos: p.payload.doc.data().hidratos,
           id: p.payload.doc.id,
         };
+
         this.listaProductos.push(this.product);
+        setTimeout(() => {
+          this.mostrarSpinner=false;
+
+        }, 3000);
       });
 
       this.dataSource = this.listaProductos;
     });
-    
+    this.mostrarSpinner= true
   }
 }
 

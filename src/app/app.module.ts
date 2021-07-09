@@ -17,13 +17,15 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { ListarProductosComponent } from './components/listar-productos/listar-productos.component';
+import { SpinnerComponent } from './components/shared/spinner/spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     AddEditProductoComponent,
-    ListarProductosComponent
+    ListarProductosComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
