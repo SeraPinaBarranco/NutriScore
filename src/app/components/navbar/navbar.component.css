@@ -5,3 +5,8 @@
   color: white;
   font-weight: bold;
 }
+
+.activo{
+  background-color: rgb(31, 211, 136);
+  color: rgb(124, 124, 124);
+}
