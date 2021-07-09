@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { Productos } from 'src/app/models/productos.model';
 import { ProductoService } from 'src/app/services/producto.service';
+import swal from'sweetalert2';
 
 @Component({
   selector: 'app-listar-productos',
@@ -18,7 +18,8 @@ export class ListarProductosComponent implements OnInit {
     'calorias',
     'proteinas',
     'grasas',
-    'hidratos'
+    'hidratos',
+    'acciones'
     //'id',
   ];
   //dataSource = new MatTableDataSource();
@@ -35,6 +36,10 @@ export class ListarProductosComponent implements OnInit {
 
   llenarArrayProductos() {
     let s = 0;
+
+    this.listaProductos= [];
+    this.dataSource = [];
+
     //Trae todos los registros del Service
     this._productoService.obternerProductos().subscribe((res) => {
 
@@ -55,12 +60,31 @@ export class ListarProductosComponent implements OnInit {
         setTimeout(() => {
           this.mostrarSpinner=false;
 
-        }, 3000);
+        }, 1100);
       });
 
       this.dataSource = this.listaProductos;
     });
     this.mostrarSpinner= true
+  }
+
+  eliminarProducto(id:string){
+    this._productoService.eliminarProducto(id).then( res=>{
+      this.llenarArrayProductos();
+
+      swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Información de Registro',
+        text:`Producto eliminado con exito!!!`,
+        showConfirmButton: false,
+        timer: 1500
+      });
+           
+    },error=>{
+      console.log(error);
+      //this.toastr.error("Error al eliminar la tarjeta",error);
+    })
   }
 }
 

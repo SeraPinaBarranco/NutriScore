@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router'
 import { Productos } from 'src/app/models/productos.model';
 import { ProductoService } from 'src/app/services/producto.service';
 import swal from'sweetalert2';
@@ -15,7 +15,7 @@ export class AddEditProductoComponent implements OnInit {
   private producto: Productos[] = [];
 
   value = 'Borrar';
-  constructor(private _productoService: ProductoService) {
+  constructor(private _productoService: ProductoService, private router: Router) {
 
   }
 
@@ -65,7 +65,18 @@ export class AddEditProductoComponent implements OnInit {
 
     this._productoService.guardarProducto(PROD).then(()=>{
       
-      swal.fire("Titulo",`Producto -${PROD.nombre.toUpperCase()}- guardado con exito!!!` ,"success")
+      //swal.fire("Titulo",`Producto -${PROD.nombre.toUpperCase()}- guardado con exito!!!` ,"success");
+      
+      swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Información de Registro',
+        text:`Producto -${PROD.nombre.toUpperCase()}- guardado con exito!!!`,
+        showConfirmButton: false,
+        timer: 2000
+      });
+      this.router.navigate(['/listar-productos']);
+
     },error=>{
       console.log(error);
     })

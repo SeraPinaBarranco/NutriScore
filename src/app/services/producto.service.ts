@@ -20,4 +20,7 @@ export class ProductoService {
     return this.firestore.firestore.collection('productos').add(producto);
   }
 
+  eliminarProducto(id:string):Promise<any>{
+    return this.firestore.collection('productos').doc(id).delete();}
+
 }
