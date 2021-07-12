@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Productos } from 'src/app/models/productos.model';
 import { ProductoService } from 'src/app/services/producto.service';
 import swal from'sweetalert2';
@@ -28,7 +29,7 @@ export class ListarProductosComponent implements OnInit {
 
   //dataSource= new MatTableDataSource<Productos>();
   public dataSource: any[] = [];
-  constructor(private _productoService: ProductoService) {}
+  constructor(private _productoService: ProductoService, private router : Router) {}
 
   ngOnInit(): void {
     this.llenarArrayProductos();
@@ -36,7 +37,7 @@ export class ListarProductosComponent implements OnInit {
 
   llenarArrayProductos() {
     let s = 0;
-
+    
     this.listaProductos= [];
     this.dataSource = [];
 
@@ -71,7 +72,6 @@ export class ListarProductosComponent implements OnInit {
   eliminarProducto(id:string){
     this._productoService.eliminarProducto(id).then( res=>{
       this.llenarArrayProductos();
-
       swal.fire({
         position: 'top-end',
         icon: 'success',
@@ -86,6 +86,15 @@ export class ListarProductosComponent implements OnInit {
       //this.toastr.error("Error al eliminar la tarjeta",error);
     })
   }
+
+  addProductoEdit(objeto:Productos){
+    if(objeto.id != null){
+      this._productoService.addProductoEdit(objeto);
+      this.router.navigate(['/add']);      
+    }
+  }
+
+  
 }
 
 /*export interface Prod {

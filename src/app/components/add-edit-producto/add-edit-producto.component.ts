@@ -13,6 +13,7 @@ import swal from'sweetalert2';
 export class AddEditProductoComponent implements OnInit {
   myForm: FormGroup = new FormGroup({});
   private producto: Productos[] = [];
+  private suscripcion : any;
 
   value = 'Borrar';
   constructor(private _productoService: ProductoService, private router: Router) {
@@ -21,10 +22,16 @@ export class AddEditProductoComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
-    
+    const suscripcion =this._productoService.getProductoEdit().subscribe( res =>{
+      console.log(res);
+      let producto = new Productos(res.nombre, res.calorias, res.proteinas, res.grasas, res.hidratos, res.id);
+      this.suscripcion.unsubscribe();
+      this.editarProducto(producto);
+    })
   }
-
+  
   createForm(){
+
     this.myForm= new FormGroup({
       nombre: new FormControl("",[Validators.required, Validators.maxLength(15)]),
       calorias: new FormControl("",[Validators.required]),
@@ -53,6 +60,10 @@ export class AddEditProductoComponent implements OnInit {
     })
   }*/
 
+  editarProducto(producto:Productos){
+    
+  }
+
   guardarProducto(){
     const PROD: Productos={
       
@@ -75,7 +86,8 @@ export class AddEditProductoComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       });
-      this.router.navigate(['/listar-productos']);
+      //this.router.navigate(['/listar-productos']);
+      this.resetearForm();
 
     },error=>{
       console.log(error);

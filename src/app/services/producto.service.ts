@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Productos } from '../models/productos.model';
 
 
@@ -9,8 +10,9 @@ import { Productos } from '../models/productos.model';
   providedIn: 'root'
 })
 export class ProductoService {
+  private producto$= new Subject<any>();
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore, private router:Router) { }
 
   obternerProductos():Observable<any>{
     return this.firestore.collection('productos').snapshotChanges();
@@ -23,4 +25,11 @@ export class ProductoService {
   eliminarProducto(id:string):Promise<any>{
     return this.firestore.collection('productos').doc(id).delete();}
 
+  addProductoEdit(producto:Productos){
+    this.producto$.next(producto);//Emite el valor recibido por parametro
+    //this.router.navigate(['/add']);
+  }
+  getProductoEdit():Observable<Productos>{
+    return this.producto$.asObservable();
+  }
 }
