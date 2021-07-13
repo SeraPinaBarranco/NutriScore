@@ -57,16 +57,18 @@ export class ListarProductosComponent implements OnInit {
           id: p.payload.doc.id,
         };
 
-        this.listaProductos.push(this.product);
+        this.listaProductos.push(this.product); 
         setTimeout(() => {
           this.mostrarSpinner=false;
 
         }, 1100);
       });
-
+      
       this.dataSource = this.listaProductos;
+      
     });
     this.mostrarSpinner= true
+    
   }
 
   eliminarProducto(id:string){
@@ -78,13 +80,13 @@ export class ListarProductosComponent implements OnInit {
         title: 'Información de Registro',
         text:`Producto eliminado con exito!!!`,
         showConfirmButton: false,
-        timer: 1500
-      });
+        timer: 1500 });
+        
            
     },error=>{
       console.log(error);
       //this.toastr.error("Error al eliminar la tarjeta",error);
-    })
+    });
   }
 
   addProductoEdit(objeto:Productos){
