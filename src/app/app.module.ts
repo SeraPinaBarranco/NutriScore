@@ -18,6 +18,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { ListarProductosComponent } from './components/listar-productos/listar-productos.component';
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
+import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SpinnerComponent } from './components/shared/spinner/spinner.component'
     NavbarComponent,
     AddEditProductoComponent,
     ListarProductosComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    EditarProductoComponent
   ],
   imports: [
     BrowserModule,

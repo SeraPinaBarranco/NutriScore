@@ -38,12 +38,12 @@ export class ListarProductosComponent implements OnInit {
   llenarArrayProductos() {
     let s = 0;
     
-    this.listaProductos= [];
-    this.dataSource = [];
+    
 
     //Trae todos los registros del Service
     this._productoService.obternerProductos().subscribe((res) => {
-
+      this.listaProductos= [];
+      this.dataSource = [];
       this.mostrarSpinner = true;
 
       res.forEach((p: any) => {
@@ -99,38 +99,3 @@ export class ListarProductosComponent implements OnInit {
   
 }
 
-/*export interface Prod {
-  nombre: string;
-  calorias: number;
-  proteinas: number;
-  grasas: number;
-  hidratos: number;
-  id: string;
-}
-
-const ELEMENT_DATA: Prod[] = [
-  {
-    nombre: 'ww',
-    calorias: 2,
-    proteinas: 23,
-    grasas: 44,
-    hidratos: 63,
-    id: 'w23ddw',
-  },
-  {
-    nombre: 'sw',
-    calorias: 1,
-    proteinas: 223,
-    grasas: 74,
-    hidratos: 6,
-    id: 'ertrdg',
-  },
-  {
-    nombre: 'ttw',
-    calorias: 12,
-    proteinas: 2223,
-    grasas: 94,
-    hidratos: 16,
-    id: 'gnvnv',
-  },
-];*/

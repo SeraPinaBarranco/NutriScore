@@ -29,7 +29,12 @@ export class ProductoService {
     this.producto$.next(producto);//Emite el valor recibido por parametro
     //this.router.navigate(['/add']);
   }
-  getProductoEdit():Observable<Productos>{
-    return this.producto$.asObservable();
+
+  getProductoEdit(id:string):Observable<any>{
+    return this.firestore.collection('productos').doc(id).snapshotChanges();
+  }
+
+  editProducto(id:string,producto:Productos):Promise<any>{
+    return this.firestore.firestore.collection('productos').doc(id).update(producto);    
   }
 }
