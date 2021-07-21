@@ -1,48 +1,61 @@
 <nav class="navbar navbar-expand-lg navbar-dark navbar-light bg-primary">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class=" mt-2 collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-
-
+        <li><hr class="mi-hr dropdown-divider "/></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             Productos
           </a>
-          <ul class="dropdown-menu border-0 bg-primary" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item " routerLink="/add">Añadir Producto</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" routerLink="/listar-productos">Listar Producto</a></li>
+          <ul
+            class="dropdown-menu border-0 bg-primary"
+            aria-labelledby="navbarDropdown"
+          >
+            
+            <li>
+              <a class="dropdown-item" routerLink="/add">Añadir Producto</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" routerLink="/listar-productos"
+                >Listar Producto</a
+              >
+            </li>
           </ul>
         </li>
-
       </ul>
     </div>
   </div>
-
 </nav>
 
 <div class="container mb-3">
-    <div class="row text-center">
-        <p>navbar works!</p>
-    </div>
-
-
-    <div class="row">
-        <div class="d-flex justify-content-around">
-            <section>
-                <div class="example-label">Basic</div>
-                <div class="example-button-row">
-
-                  <a mat-button routerLink="/add" >Añadir producto</a>
-                  <a mat-button routerLink="/listar-productos" >Listar Productos</a>
-                  <!--<a mat-button >------</a>
-                  <a mat-button >------</a>
-                  <a mat-button >------</a>-->
-                </div>
-            </section>
-        </div>
-    </div>
+  <div
+    class="
+      titulo-componentes
+      text-primary
+      d-flex
+      justify-content-center
+      mt-3
+      mb-3
+    "
+  >
+    <span class="example-label">Listado de Productos</span>
+  </div>
 </div>

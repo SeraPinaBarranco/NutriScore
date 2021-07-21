@@ -8,7 +8,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6">
-       <!-- <form (ngSubmit)="guardarProducto()" [formGroup]="myForm">
+        <form (ngSubmit)="editarRegistro()" [formGroup]="myForm">
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Nombre producto</mat-label>
             <input matInput placeholder="Introduce el nombre" value=""
@@ -16,7 +16,8 @@
           </mat-form-field>
           <div class="errores" *ngIf="myForm.get('nombre')?.hasError('required') && myForm.get('nombre')?.touched"><span>Campo Requerido</span></div>
           <div class="errores" *ngIf="myForm.controls['nombre'].hasError('maxlength')"><span>Exceso de caracteres</span></div>
-  
+
+
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Calorias</mat-label>
             <input
@@ -28,7 +29,7 @@
             />
           </mat-form-field>
           <div class="errores" *ngIf="myForm.get('calorias')?.hasError('required') && myForm.get('calorias')?.touched"><span>Campo Requerido</span></div>
-  
+
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Proteinas</mat-label>
             <input
@@ -40,7 +41,7 @@
             />
           </mat-form-field>
           <div class="errores" *ngIf="myForm.get('proteinas')?.hasError('required') && myForm.get('proteinas')?.touched"><span>Campo Requerido</span></div>
-  
+
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Grasas</mat-label>
             <input
@@ -52,33 +53,27 @@
             />
           </mat-form-field>
           <div class="errores" *ngIf="myForm.get('grasas')?.hasError('required') && myForm.get('grasas')?.touched"><span>Campo Requerido</span></div>
-  
+
           <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Hidratos de carbono</mat-label>
-            <input
-              type="number"
-              matInput
-              placeholder="Introduce los hidratos de carbono"
-              value=""
-              formControlName="hidratos"
-            />
-          </mat-form-field>
-          <div class="errores" *ngIf="myForm.get('hidratos')?.hasError('required') && myForm.get('hidratos')?.touched"><span>Campo Requerido</span></div>
-  
-          <div class="d-flex justify-content-around">
-            <button [disabled]="myForm.invalid" type="success" class="btn btn-primary btn-block">
-              Guardar
-            </button>
-  
-            <span class="material-icons reset-color" > restart_alt </span>
-  
-  
-          </div>
-  
-  
-  
-  
-        </form>-->
+          <mat-label>Hidratos de carbono</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Introduce los hidratos de carbono"
+            value=""
+            formControlName="hidratos"
+          />
+        </mat-form-field>
+        <div class="errores" *ngIf="myForm.get('hidratos')?.hasError('required') && myForm.get('hidratos')?.touched"><span>Campo Requerido</span></div>
+
+        <div class="d-flex justify-content-around">
+          <button [disabled]="myForm.invalid" type="success" class="btn btn-primary btn-block">
+            Guardar
+          </button>
+        </div>
+
+        </form>
+
       </div>
     </div>
   </div>
