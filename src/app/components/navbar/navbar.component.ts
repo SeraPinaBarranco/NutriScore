@@ -8,8 +8,10 @@ import { RouterLinkActive } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor() { }
+  imagen: string;
+  constructor() {
+    this.imagen = '../../../assets/img/images.jpeg';
+  }
 
   ngOnInit(): void {
   }

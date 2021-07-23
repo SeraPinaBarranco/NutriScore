@@ -23,3 +23,10 @@
   border: 0;
  
 }
+
+.dropdown-item:hover{
+  background-color: rgb(19, 52, 235);  
+  border-radius: 5px;
+  
+}
+

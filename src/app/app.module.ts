@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { ListarProductosComponent } from './components/listar-productos/listar-productos.component';
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
 import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
+import { CrearRecetaComponent } from './components/crear-receta/crear-receta.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EditarProductoComponent } from './components/editar-producto/editar-pro
     AddEditProductoComponent,
     ListarProductosComponent,
     SpinnerComponent,
-    EditarProductoComponent
+    EditarProductoComponent,
+    CrearRecetaComponent
   ],
   imports: [
     BrowserModule,
