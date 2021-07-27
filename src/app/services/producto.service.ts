@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { Observable, Subject } from 'rxjs';
 import { Productos } from '../models/productos.model';
+import { Recetas } from '../models/recetas.model';
 
 
 @Injectable({
@@ -20,6 +21,9 @@ export class ProductoService {
 
   guardarProducto(producto:Productos):Promise<any>{
     return this.firestore.firestore.collection('productos').add(producto);
+  }
+  guardarReceta(receta:any):Promise<any>{
+    return this.firestore.firestore.collection('recetas').add(receta);
   }
 
   eliminarProducto(id:string):Promise<any>{

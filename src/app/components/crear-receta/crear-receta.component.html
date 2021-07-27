@@ -1,1 +1,16 @@
-<p>crear-receta works!</p>
+<div class="container block">
+    <form [formGroup]="myForm" (ngSubmit)="crearReceta()" >
+        <div class="form-group mb-3">
+            <label for="nombreReceta">Nombre</label>
+            <input type="text" class="form-control" id="nombreReceta" formControlName="nombre" placeholder="Título de la receta">            
+          </div>
+        
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+
+ <!--SELECT RELLENO CON LOS NOMBRES 
+     <select class="form-select" aria-label="Default select example">
+        <option selected>Ingrediente</option>
+        <option *ngFor="let i of productos" value="">{{i.nombre}}</option>            
+    </select> -->
