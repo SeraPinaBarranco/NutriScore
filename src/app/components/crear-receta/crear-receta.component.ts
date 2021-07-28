@@ -1,6 +1,7 @@
 import { RecursiveTemplateAstVisitor } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Ingrediente, RecetasInterface } from 'src/app/interfaces/recetas.interface';
 import { Productos } from 'src/app/models/productos.model';
 import { Recetas } from 'src/app/models/recetas.model'
 import { ProductoService } from 'src/app/services/producto.service';
@@ -11,9 +12,10 @@ import swal from'sweetalert2';
   templateUrl: './crear-receta.component.html',
   styleUrls: ['./crear-receta.component.css']
 })
-export class CrearRecetaComponent implements OnInit {
+export class CrearRecetaComponent implements OnInit{
   myForm: FormGroup=new FormGroup({});
   productos: Productos[] = [];
+  
 
   constructor(private _productoService: ProductoService) { 
 
@@ -50,21 +52,24 @@ export class CrearRecetaComponent implements OnInit {
   crearReceta(){
     const RECETA= {
       nombre: this.myForm.controls.nombre.value,
-        ingredientes:{
-          producto:'macarrones',
-          cantidad:12
-        }
+        // ingredientes:[{
+        //   producto:'macarrones',
+        //   cantidad:12
+        // },{
+        //   producto:'garbanzos',
+        //   cantidad: 23
+        // }]
                 
       }
 
-      console.log(RECETA);
+      console.log(this.myForm);
     
     this._productoService.guardarReceta(RECETA).then(()=>{
        swal.fire({
         position: 'top-end',
         icon: 'success',
         title: 'Información de Registro',
-        text:`Producto -${RECETA.nombre.toUpperCase()}- guardado con exito!!!`,
+        text:`Producto - ${RECETA.nombre} - guardado con exito!!!`,
         showConfirmButton: false,
         timer: 2000
       })
