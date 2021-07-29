@@ -20,6 +20,8 @@ import { ListarProductosComponent } from './components/listar-productos/listar-p
 import { SpinnerComponent } from './components/shared/spinner/spinner.component';
 import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
 import { CrearRecetaComponent } from './components/crear-receta/crear-receta.component';
+import { CrearRecetasComponent } from './components/crear-recetas/crear-recetas.component';
+import { AgregarIngredienteComponent } from './components/crear-recetas/agregar-ingrediente/agregar-ingrediente.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { CrearRecetaComponent } from './components/crear-receta/crear-receta.com
     ListarProductosComponent,
     SpinnerComponent,
     EditarProductoComponent,
-    CrearRecetaComponent
+    CrearRecetaComponent,
+    CrearRecetasComponent,
+    AgregarIngredienteComponent
   ],
   imports: [
     BrowserModule,
