@@ -22,7 +22,7 @@ export class CrearRecetasComponent implements OnInit {
       this.formularioValido= true;
     }else{
       this.formularioValido= false
-    }    
+    }
   }
 
   crearForm() {
@@ -34,10 +34,11 @@ export class CrearRecetasComponent implements OnInit {
     });
   }
 
-  mostrarAddIngrediente(){
-    this.mostrarAddIng = true;
+  mostrarAddIngrediente(f:any){
+    /*this.mostrarAddIng = true;
     if(this.formularioValido && this.mostrarAddIng){
-      
-    }
+
+    }*/
+    console.log(f);
   }
 }
