@@ -1,3 +1,15 @@
 <div class="container border rounded shadow block col-lg-12 mt-3 p-3">
-  <p>agregar-ingrediente works!</p>
+  <div class="row">
+    <span>Agrega un ingrediente</span>
+  </div>
+  <form>  
+
+    <!--SELECT RELLENO CON LOS NOMBRES -->
+     <select class="form-select" aria-label="Default select example">
+        <option selected>Ingrediente</option>
+        <option *ngFor="let i of productos" value="">{{i.nombre}}</option>            
+    </select> 
+
+    <input class="form-control mt-3" type="number" name="cantidad" id="catidad" placeholder="Introduce cantidad">
+  </form>
 </div>
