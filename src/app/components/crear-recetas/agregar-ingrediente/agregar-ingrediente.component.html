@@ -2,14 +2,15 @@
   <div class="row">
     <span>Agrega un ingrediente</span>
   </div>
-  <form>  
+  <form>
 
     <!--SELECT RELLENO CON LOS NOMBRES -->
      <select class="form-select" aria-label="Default select example">
         <option selected>Ingrediente</option>
-        <option *ngFor="let i of productos" value="">{{i.nombre}}</option>            
-    </select> 
+        <option *ngFor="let i of productos" value="">{{i.nombre}}</option>
+    </select>
 
     <input class="form-control mt-3" type="number" name="cantidad" id="catidad" placeholder="Introduce cantidad">
+    <button class="btn btn-primary mt-2" type="button">Agregar</button>
   </form>
 </div>
