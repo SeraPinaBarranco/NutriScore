@@ -22,6 +22,7 @@ import { EditarProductoComponent } from './components/editar-producto/editar-pro
 import { CrearRecetaComponent } from './components/crear-receta/crear-receta.component';
 import { CrearRecetasComponent } from './components/crear-recetas/crear-recetas.component';
 import { AgregarIngredienteComponent } from './components/crear-recetas/agregar-ingrediente/agregar-ingrediente.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AgregarIngredienteComponent } from './components/crear-recetas/agregar-
     EditarProductoComponent,
     CrearRecetaComponent,
     CrearRecetasComponent,
-    AgregarIngredienteComponent
+    AgregarIngredienteComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
