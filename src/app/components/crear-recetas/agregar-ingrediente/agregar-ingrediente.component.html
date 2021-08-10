@@ -1,6 +1,6 @@
 <div class="container border rounded shadow block col-lg-12 mt-3 p-3">
   <div class="row">
-    <span>Agrega un ingrediente</span>
+    <span>Agrega un ingredientes a: {{nombreReceta}}</span>
   </div>
   <form>
 
@@ -10,7 +10,7 @@
         <option *ngFor="let i of productos" value="">{{i.nombre}}</option>
     </select>
 
-    <input class="form-control mt-3" type="number" name="cantidad" id="catidad" placeholder="Introduce cantidad">
-    <button class="btn btn-primary mt-2" type="button">Agregar</button>
+    <input class="form-control mt-3" type="number" name="cantidad" id="catidad" placeholder="Introduce cantidad" #nuevoIngrediente>
+    <button class="btn btn-primary mt-2" type="button" (click)="addNuevoIngrediente(nuevoIngrediente.value)">Agregar</button>
   </form>
 </div>
