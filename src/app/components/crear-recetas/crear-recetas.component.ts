@@ -10,7 +10,12 @@ export class CrearRecetasComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   formularioValido: boolean = false;
   mostrarAddIng: boolean = false;
+  items: number[] = [];
 
+  addItem(newItem: string) {
+    this.items.push(+newItem);
+    console.log(+newItem);
+  }
   constructor() {}
 
   ngOnInit(): void {

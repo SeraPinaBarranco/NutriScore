@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Productos } from 'src/app/models/productos.model';
 import { ProductoService } from '../../../services/producto.service';
 
@@ -8,7 +8,9 @@ import { ProductoService } from '../../../services/producto.service';
   styleUrls: ['./agregar-ingrediente.component.css']
 })
 export class AgregarIngredienteComponent implements OnInit {
-  
+  @Input() nombreReceta:string;
+  @Output() nuevoIngredienteEvent = new EventEmitter<string>();
+
   productos: Productos[] = [];
 
   constructor(private _productoSevice: ProductoService) { }
@@ -30,6 +32,10 @@ export class AgregarIngredienteComponent implements OnInit {
       })
     });
     console.log(this.productos);
+  }
+
+  addNuevoIngrediente(value: string) {
+    this.nuevoIngredienteEvent.emit(value);
   }
 
 }

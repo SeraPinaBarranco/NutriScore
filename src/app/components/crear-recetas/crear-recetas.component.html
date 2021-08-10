@@ -1,21 +1,22 @@
 <div class="container border rounded shadow block col-lg-4 p-3">
-    <form #f ="ngForm" [formGroup]="form">
+    <form #f ="ngForm" [formGroup]="form"> 
         <div class="form-group mb-3">
             <label for="nombreReceta">Nombre</label>
-            <input type="text" formControlName="nombre" class="form-control" id="nombreReceta"  placeholder="Título de la receta">
+            <input type="text" formControlName="nombre" class="form-control" id="nombreReceta"  placeholder="Título de la receta" 
+              >
           </div>
 
-        <button [disabled]="!f.form.valid" routerLink="add-ingrediente" type="button" (click)="mostrarAddIngrediente(f.form)" class="btn btn-primary">Añadir ingredientes</button>
+        <button [disabled]="!f.form.valid" type="button" (click)="mostrarAddIngrediente(f.form)" class="btn btn-primary">Añadir ingredientes</button>
 
         <div *ngIf="f.form.valid" class="container box">
-          <router-outlet></router-outlet>
+          <app-agregar-ingrediente [nombreReceta]="form.value['nombre']" (ingredienteEvent)="addItem('$event')"></app-agregar-ingrediente>
         </div>
 
       </form>
 </div>
 
 <div class="container border rounded shadow block col-lg-4 p-3">
-  <span>Ingradientes</span>
+  <span>Ingredientes</span>
   <ul>
     <li>
 

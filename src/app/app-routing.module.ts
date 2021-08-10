@@ -13,9 +13,8 @@ const routes: Routes = [
   {path:'add', component: AddEditProductoComponent},
   {path:'listar-productos', component: ListarProductosComponent},
   {path:'crear-receta', component: CrearRecetaComponent},
-  {path:'crear-recetas', component: CrearRecetasComponent, children:[
-    {path:'add-ingrediente', component: AgregarIngredienteComponent}
-  ]},
+  {path:'crear-recetas', component: CrearRecetasComponent},
+    {path:'add-ingrediente', component: AgregarIngredienteComponent},
   {path:'edit/:slug', component: EditarProductoComponent}
 ];
 
