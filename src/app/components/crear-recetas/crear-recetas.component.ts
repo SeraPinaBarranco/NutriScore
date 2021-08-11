@@ -10,11 +10,10 @@ export class CrearRecetasComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   formularioValido: boolean = false;
   mostrarAddIng: boolean = false;
-  items: number[] = [];
+  items:number[] = [];
 
-  addItem(newItem: string) {
-    this.items.push(+newItem);
-    console.log(+newItem);
+  addIngrediente(newItem: number) {
+    this.items.push(newItem);
   }
   constructor() {}
 

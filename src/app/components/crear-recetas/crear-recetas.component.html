@@ -9,7 +9,7 @@
         <button [disabled]="!f.form.valid" type="button" (click)="mostrarAddIngrediente(f.form)" class="btn btn-primary">Añadir ingredientes</button>
 
         <div *ngIf="f.form.valid" class="container box">
-          <app-agregar-ingrediente [nombreReceta]="form.value['nombre']" (ingredienteEvent)="addItem('$event')"></app-agregar-ingrediente>
+          <app-agregar-ingrediente [nombreReceta]="form.value['nombre']" (nuevoIngredienteEvent)="addIngrediente($event)"></app-agregar-ingrediente>
         </div>
 
       </form>
@@ -18,8 +18,8 @@
 <div class="container border rounded shadow block col-lg-4 p-3">
   <span>Ingredientes</span>
   <ul>
-    <li>
-
+    <li *ngFor="let item of items">
+      {{item}}
     </li>
   </ul>
 </div>
