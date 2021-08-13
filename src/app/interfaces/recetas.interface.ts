@@ -3,7 +3,7 @@ export interface RecetasInterface {
     ingredientes?: Ingrediente[];
 }
 
-export interface Ingrediente {
+interface Ingrediente {
     producto?: string;
     cantidad?: number;
 }
