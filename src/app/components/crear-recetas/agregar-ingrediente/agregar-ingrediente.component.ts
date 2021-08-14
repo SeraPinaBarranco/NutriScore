@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Ingredientes } from 'src/app/models/ingredientes-interface';
 import { Productos } from 'src/app/models/productos.model';
 import { ProductoService } from '../../../services/producto.service';
 
@@ -10,9 +11,10 @@ import { ProductoService } from '../../../services/producto.service';
 })
 export class AgregarIngredienteComponent implements OnInit {
   @Input() nombreReceta:string;
-  @Output() nuevoIngredienteEvent = new EventEmitter<number>();
+  @Output() nuevoIngredienteEvent = new EventEmitter<Ingredientes>();
   form: FormGroup = new FormGroup({});
   productos: Productos[] = [];
+  producto:string;
 
   constructor(private _productoSevice: ProductoService) { }
 
@@ -35,9 +37,12 @@ export class AgregarIngredienteComponent implements OnInit {
     this.crearFormulario();
   }
 
-  addNewItem(value: number) {
-    this.nuevoIngredienteEvent.emit(value);
-    
+  addNewItem(producto:string,cantidad:number) {
+    //let producto= this.producto;
+    //console.log(producto);
+    let ing:Ingredientes = {producto,cantidad};
+    this.nuevoIngredienteEvent.emit(ing);
+
   }
 
   crearFormulario(){
@@ -52,5 +57,5 @@ export class AgregarIngredienteComponent implements OnInit {
       ] )
     });
   }
-  
+
 }

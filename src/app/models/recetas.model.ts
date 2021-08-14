@@ -1,7 +1,7 @@
 export class Recetas{
     nombre:string;
     ingredientes: Ingredientes[];
-    constructor(nombre:string, ingredientes:Ingredientes[]){}
+    constructor(){}
 }
 
 class Ingredientes{

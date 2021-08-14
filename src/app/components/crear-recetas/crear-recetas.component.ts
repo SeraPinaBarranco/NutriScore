@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Ingredientes } from 'src/app/models/ingredientes-interface';
+import { Recetas } from 'src/app/models/recetas.model';
 
 @Component({
   selector: 'app-crear-recetas',
@@ -10,10 +12,11 @@ export class CrearRecetasComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   formularioValido: boolean = false;
   mostrarAddIng: boolean = false;
-  listadoIngredientes:number[] = [];
+  listadoIngredientes:Ingredientes[] = [];
 
-  addIngrediente(newItem: number) {
+  addIngrediente(newItem: Ingredientes) {
     this.listadoIngredientes.push(newItem);
+
   }
   constructor() {}
 
@@ -44,5 +47,19 @@ export class CrearRecetasComponent implements OnInit {
 
     }*/
     console.log(f);
+  }
+
+  guardarReceta(){
+    let receta:Recetas= new Recetas;
+
+    let nombreReceta:string= this.form.value.nombre;
+
+    receta={
+      nombre: nombreReceta,
+      ingredientes: [
+        ...this.listadoIngredientes
+      ]
+    }
+    console.log(receta);
   }
 }

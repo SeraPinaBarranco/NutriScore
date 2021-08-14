@@ -5,13 +5,15 @@
   <form [formGroup]="form">
 
     <!--SELECT RELLENO CON LOS NOMBRES -->
-     <select formControlName="ingrediente" class="form-select" aria-label="Default select example">
-        <option selected>Ingrediente</option>
-        <option *ngFor="let i of productos" value="">{{i.nombre}}</option>
+     <select formControlName="ingrediente" id="ingrediente"  class="form-select" aria-label="Default select example"
+      #producto>
+        <option selected disabled>Ingrediente</option>
+        <option *ngFor="let i of productos">{{i.nombre}} </option>
     </select>
 
-    <input formControlName="cantidad" class="form-control mt-3" type="number" name="cantidad" id="catidad" placeholder="Introduce cantidad" #newItem>
-    <button class="btn btn-primary mt-2" (click)="addNewItem(+newItem.value)" type="button" >Agregar</button>
-    
+    <input formControlName="cantidad" class="form-control mt-3" type="number" name="cantidad" id="catidad" placeholder="Introduce cantidad" #cantidad>
+    <button class="btn btn-primary mt-2" (click)="addNewItem(producto.value, +cantidad.value)" type="button" >Agregar</button>
+
   </form>
+
 </div>

@@ -1,8 +1,8 @@
 <div class="container border rounded shadow block col-lg-4 p-3">
-    <form #f ="ngForm" [formGroup]="form"> 
+    <form #f ="ngForm" [formGroup]="form">
         <div class="form-group mb-3">
             <label for="nombreReceta">Nombre</label>
-            <input type="text" formControlName="nombre" class="form-control" id="nombreReceta"  placeholder="Título de la receta" 
+            <input type="text" formControlName="nombre" class="form-control" id="nombreReceta"  placeholder="Título de la receta"
               >
           </div>
 
@@ -22,6 +22,11 @@
       {{item}}
     </li>
   </ul>
+
+  <div class="row">
+    <button *ngIf="listadoIngredientes.length" (click)="guardarReceta()" type="button" class="btn btn-primary">Guardar Receta</button>
+  </div>
+
 </div>
 
 

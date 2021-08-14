@@ -1,7 +1,7 @@
 import { RecursiveTemplateAstVisitor } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Ingrediente, RecetasInterface } from 'src/app/interfaces/recetas.interface';
+import { RecetasInterface } from 'src/app/interfaces/recetas.interface';
 import { Productos } from 'src/app/models/productos.model';
 import { Recetas } from 'src/app/models/recetas.model'
 import { ProductoService } from 'src/app/services/producto.service';
@@ -15,15 +15,15 @@ import swal from'sweetalert2';
 export class CrearRecetaComponent implements OnInit{
   myForm: FormGroup=new FormGroup({});
   productos: Productos[] = [];
-  
 
-  constructor(private _productoService: ProductoService) { 
+
+  constructor(private _productoService: ProductoService) {
 
 
     this._productoService.obternerProductos().subscribe(res =>{
       let prod:any;
       res.forEach((p:any)=>{
-        
+
         prod= {
           nombre:p.payload.doc.data().nombre,
           calorias:p.payload.doc.data().calorias,
@@ -45,7 +45,7 @@ export class CrearRecetaComponent implements OnInit{
   crearFormulario(){
     this.myForm= new FormGroup({
       nombre: new FormControl("",[Validators.required, Validators.maxLength(15)])
-      
+
     });
   }
 
@@ -59,11 +59,11 @@ export class CrearRecetaComponent implements OnInit{
         //   producto:'garbanzos',
         //   cantidad: 23
         // }]
-                
+
       }
 
       console.log(this.myForm);
-    
+
     this._productoService.guardarReceta(RECETA).then(()=>{
        swal.fire({
         position: 'top-end',
