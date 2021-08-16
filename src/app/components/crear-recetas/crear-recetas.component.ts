@@ -46,11 +46,11 @@ export class CrearRecetasComponent implements OnInit {
     if(this.formularioValido && this.mostrarAddIng){
 
     }*/
-    console.log(f);
+    //console.log(f);
   }
 
   guardarReceta(){
-    let receta:Recetas= new Recetas;
+    let receta:Recetas;
 
     let nombreReceta:string= this.form.value.nombre;
 
@@ -60,6 +60,6 @@ export class CrearRecetasComponent implements OnInit {
         ...this.listadoIngredientes
       ]
     }
-    console.log(receta);
+    //console.log(receta);
   }
 }

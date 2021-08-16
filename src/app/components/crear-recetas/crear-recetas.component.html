@@ -6,7 +6,7 @@
               >
           </div>
 
-        <button [disabled]="!f.form.valid" type="button" (click)="mostrarAddIngrediente(f.form)" class="btn btn-primary">Añadir ingredientes</button>
+        <!-- <button [disabled]="!f.form.valid" type="button" (click)="mostrarAddIngrediente(f.form)" class="btn btn-primary">Añadir ingredientes</button> -->
 
         <div *ngIf="f.form.valid" class="container box">
           <app-agregar-ingrediente [nombreReceta]="form.value['nombre']" (nuevoIngredienteEvent)="addIngrediente($event)"></app-agregar-ingrediente>
@@ -19,7 +19,7 @@
   <span>Ingredientes</span>
   <ul>
     <li *ngFor="let item of listadoIngredientes">
-      {{item}}
+      <strong>{{item.producto}}</strong>: <strong>{{item.cantidad}}</strong> gramos
     </li>
   </ul>
 
