@@ -33,21 +33,23 @@ export class AgregarIngredienteComponent implements OnInit {
 
         this.productos.push(producto);
       })
+      console.log(this.productos);
     });
-    const found = this.productos.find(element => element.grasas > 2);
-    console.log(found);
+
     this.crearFormulario();
-    
+
   }
 
   addNewItem(producto:string,cantidad:number) {
-    //let producto= this.producto;
-    //console.log(producto);
+    
+    const p = this.productos.find(element => element.nombre === 'Manzana');//busca un elemento de un array
+    console.log(p);
+
     let ing:Ingredientes = {producto,cantidad};
     this.nuevoIngredienteEvent.emit(ing);
     /*Hay que hacer una consulta para traer los datos del producto*/
     this.crearFormulario();
-    
+
 
   }
 
