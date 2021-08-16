@@ -34,7 +34,10 @@ export class AgregarIngredienteComponent implements OnInit {
         this.productos.push(producto);
       })
     });
+    const found = this.productos.find(element => element.grasas > 2);
+    console.log(found);
     this.crearFormulario();
+    
   }
 
   addNewItem(producto:string,cantidad:number) {
@@ -42,12 +45,15 @@ export class AgregarIngredienteComponent implements OnInit {
     //console.log(producto);
     let ing:Ingredientes = {producto,cantidad};
     this.nuevoIngredienteEvent.emit(ing);
+    /*Hay que hacer una consulta para traer los datos del producto*/
+    this.crearFormulario();
+    
 
   }
 
   crearFormulario(){
     this.form = new FormGroup({
-      ingrediente: new FormControl('Ingrediente', [
+      ingrediente: new FormControl('', [
         Validators.required,
         Validators.maxLength(15),
       ]),
