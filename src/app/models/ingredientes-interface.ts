@@ -10,6 +10,7 @@ export interface Ingredientes {
 }
 
 export interface Totales {
+  producto: string;
   totalCalorias:  number;
   totalProteinas: number;
   totalGrasas:    number;
