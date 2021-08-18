@@ -16,14 +16,35 @@ export class CrearRecetasComponent implements OnInit {
   mostrarAddIng: boolean = false;
   listadoIngredientes: Ingredientes[] = [];
   listadoProductos: Productos[]=[];
-  propiedadesTotales:Totales;
+  propiedadesTotales:Totales[]=[];
 
   addIngrediente(newItem: Ingredientes) {
     /*Agrega el ingrediente con las cantidad*/
-    const productoFiltro: string = newItem.producto;
-    console.log(productoFiltro);
+    const productoNFiltro: string = newItem.producto;
+    const cantidadFiltro: number = newItem.cantidad;
+    
+    //console.log(cantidadFiltro);
     this.listadoIngredientes.push(newItem);
+
+    this.calcularTotalPropiedades(productoNFiltro,cantidadFiltro);
   }
+
+  calcularTotalPropiedades(p:string, n:number){
+    const productoFilter = this.listadoProductos.filter((data) => data.nombre === p);//obtengo el producto seleccionado
+    
+    this.propiedadesTotales.push({
+      producto:p,
+      totalCalorias:  productoFilter[0].calorias * n ,
+      totalProteinas: productoFilter[0].proteinas * n,
+      totalGrasas:    productoFilter[0].grasas * n,
+      totalHidratos:  productoFilter[0].hidratos * n
+    });
+
+    console.log(this.propiedadesTotales);
+    //llenar el array de Totales
+
+  }
+
 
   constructor(private _productoService: ProductoService) {}
 
@@ -83,6 +104,7 @@ export class CrearRecetasComponent implements OnInit {
     receta = {
       nombre: nombreReceta,
       ingredientes: [...this.listadoIngredientes],
+      totales: [...this.propiedadesTotales]
     };
 
     /*Hacer los calculos de los totales*/
