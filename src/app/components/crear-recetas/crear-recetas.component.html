@@ -1,25 +1,33 @@
 <div class="container border rounded shadow block col-lg-4 p-3">
-    <form #f ="ngForm" [formGroup]="form">
+  
+  <form #f ="ngForm" [formGroup]="form">
         <div class="form-group mb-3">
             <label for="nombreReceta">Nombre</label>
-            <input type="text" formControlName="nombre" class="form-control" id="nombreReceta"  placeholder="Título de la receta"
+            <span>              
+              <input type="text" formControlName="nombre" class="form-control" id="nombreReceta"  placeholder="Título de la receta"
               >
+              <button type="button" (click)="mostrarIngredientes()" *ngIf="listadoIngredientes.length > 0" class="btn position-relative top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{listadoIngredientes.length}}
+                <span class="visually-hidden">unread messages</span>
+              </button>
+            </span>
           </div>
 
         <!-- <button [disabled]="!f.form.valid" type="button" (click)="mostrarAddIngrediente(f.form)" class="btn btn-primary">Añadir ingredientes</button> -->
 
         <div *ngIf="f.form.valid" class="container box">
           <app-agregar-ingrediente [nombreReceta]="form.value['nombre']" (nuevoIngredienteEvent)="addIngrediente($event)"></app-agregar-ingrediente>
+         
         </div>
 
       </form>
 </div>
 
-<div class="container border rounded shadow block col-lg-4 p-3">
+<div *ngIf="mostrarIngredientesSw" class="container border rounded shadow block col-lg-4 p-3">
   <span>Ingredientes</span>
   <ul>
     <li *ngFor="let item of listadoIngredientes">
-      <strong>{{item.producto}}</strong>: <strong>{{item.cantidad}}</strong> gramos
+      <a link="#" (click)="verIngrediente(item)" class="verItem"><strong>{{item.producto}}</strong>: <strong>{{item.cantidad}}</strong> gramos</a>
     </li>
   </ul>
 

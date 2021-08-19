@@ -44,8 +44,9 @@ export class AgregarIngredienteComponent implements OnInit {
     //console.log(p);
 
     let ing: Ingredientes = { producto, cantidad };
-    this.nuevoIngredienteEvent.emit(ing);
-    /*Hay que hacer una consulta para traer los datos del producto*/
+    
+    if(this.form.status==="VALID")this.nuevoIngredienteEvent.emit(ing);
+    
     this.crearFormulario();
   }
 

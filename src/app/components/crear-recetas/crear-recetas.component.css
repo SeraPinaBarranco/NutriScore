@@ -1,0 +1,6 @@
+.verItem{
+    text-decoration: none;
+}
+.verItem:hover{
+    cursor:pointer;    
+}
