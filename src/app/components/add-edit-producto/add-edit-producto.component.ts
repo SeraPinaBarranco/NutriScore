@@ -17,27 +17,28 @@ export class AddEditProductoComponent implements OnInit {
 
   value = 'Borrar';
   constructor(private _productoService: ProductoService, private router: Router) {
-    /*const suscripcion =this._productoService.getProductoEdit().subscribe( res =>{     
+    /*const suscripcion =this._productoService.getProductoEdit().subscribe( res =>{
       this.producto = new Productos(res.nombre, res.calorias, res.proteinas, res.grasas, res.hidratos, res.id);
-      suscripcion.unsubscribe();      
+      suscripcion.unsubscribe();
     });*/
   }
-  
-  ngOnInit(): void {    
-    this.createForm();    
+
+  ngOnInit(): void {
+    this.createForm();
   }
-  
+
   createForm(){
     this.myForm= new FormGroup({
       nombre: new FormControl("",[Validators.required, Validators.maxLength(15)]),
       calorias: new FormControl("",[Validators.required]),
       proteinas: new FormControl("",[Validators.required]),
       grasas: new FormControl("",[Validators.required]),
-      hidratos: new FormControl("",[Validators.required])
+      hidratos: new FormControl("",[Validators.required]),
+      azucares: new FormControl("",[Validators.required])
     });
-  } 
+  }
 
-  submit(){    
+  submit(){
     console.log(this.myForm.controls);
   }
 
@@ -56,18 +57,19 @@ export class AddEditProductoComponent implements OnInit {
 
   guardarProducto(){
     const PROD: Productos={
-      
+
       nombre: this.myForm.value.nombre,
       calorias:this.myForm.value.calorias,
       proteinas: this.myForm.value.proteinas,
       grasas:this.myForm.value.grasas,
-      hidratos:this.myForm.value.hidratos
+      hidratos:this.myForm.value.hidratos,
+      azucares:this.myForm.value.azucares
     }
 
     this._productoService.guardarProducto(PROD).then(()=>{
-      
+
       //swal.fire("Titulo",`Producto -${PROD.nombre.toUpperCase()}- guardado con exito!!!` ,"success");
-      
+
       swal.fire({
         position: 'top-end',
         icon: 'success',

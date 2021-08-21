@@ -20,6 +20,7 @@ export class ListarProductosComponent implements OnInit {
     'proteinas',
     'grasas',
     'hidratos',
+    'azucares',
     'acciones'
     //'id',
   ];
@@ -37,8 +38,8 @@ export class ListarProductosComponent implements OnInit {
 
   llenarArrayProductos() {
     let s = 0;
-    
-    
+
+
 
     //Trae todos los registros del Service
     this._productoService.obternerProductos().subscribe((res) => {
@@ -54,21 +55,22 @@ export class ListarProductosComponent implements OnInit {
           proteinas: p.payload.doc.data().proteinas,
           grasas: p.payload.doc.data().grasas,
           hidratos: p.payload.doc.data().hidratos,
+          azucares: p.payload.doc.data().azucares,
           id: p.payload.doc.id,
         };
 
-        this.listaProductos.push(this.product); 
+        this.listaProductos.push(this.product);
         setTimeout(() => {
           this.mostrarSpinner=false;
 
         }, 1100);
       });
-      
+
       this.dataSource = this.listaProductos;
-      
+
     });
     this.mostrarSpinner= true
-    
+
   }
 
   eliminarProducto(id:string){
@@ -81,8 +83,8 @@ export class ListarProductosComponent implements OnInit {
         text:`Producto eliminado con exito!!!`,
         showConfirmButton: false,
         timer: 1500 });
-        
-           
+
+
     },error=>{
       console.log(error);
       //this.toastr.error("Error al eliminar la tarjeta",error);
@@ -92,10 +94,10 @@ export class ListarProductosComponent implements OnInit {
   addProductoEdit(objeto:Productos){
     if(objeto.id != null){
       this._productoService.addProductoEdit(objeto);
-      this.router.navigate(['/add']);      
+      this.router.navigate(['/add']);
     }
   }
 
-  
+
 }
 

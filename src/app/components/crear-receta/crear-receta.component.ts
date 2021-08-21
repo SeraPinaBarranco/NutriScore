@@ -1,7 +1,7 @@
 import { RecursiveTemplateAstVisitor } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { RecetasInterface } from 'src/app/interfaces/recetas.interface';
+
 import { Productos } from 'src/app/models/productos.model';
 import { Recetas } from 'src/app/models/recetas.model'
 import { ProductoService } from 'src/app/services/producto.service';
@@ -29,8 +29,8 @@ export class CrearRecetaComponent implements OnInit{
           calorias:p.payload.doc.data().calorias,
           proteinas:p.payload.doc.data().proteinas,
           grasas:p.payload.doc.data().grasas,
-          hidratos:p.payload.doc.data().hidratos
-
+          hidratos:p.payload.doc.data().hidratos,
+          azucares:p.payload.doc.data().azucares
         }
 
         this.productos.push(prod);

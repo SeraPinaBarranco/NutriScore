@@ -62,7 +62,19 @@
             formControlName="hidratos"
           />
         </mat-form-field>
-        <div class="errores" *ngIf="myForm.get('hidratos')?.hasError('required') && myForm.get('hidratos')?.touched"><span>Campo Requerido</span></div>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Azucares</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Introduce los azucares"
+            value=""
+            formControlName="azucares"
+          />
+        </mat-form-field>
+
+        <div class="errores" *ngIf="myForm.get('azucares')?.hasError('required') && myForm.get('azucares')?.touched"><span>Campo Requerido</span></div>
 
         <div class="d-flex justify-content-around">
           <button [disabled]="myForm.invalid" type="success" class="btn btn-primary btn-block">

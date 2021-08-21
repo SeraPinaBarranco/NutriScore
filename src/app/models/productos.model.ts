@@ -6,8 +6,9 @@ export class Productos{
     proteinas:number;
     grasas:number;
     hidratos:number;
+    azucares:number;
 
-    constructor(nombre: string,calorias:number, proteinas: number, grasas:number,hidratos:number, id?: string ){
+    constructor(nombre: string,calorias:number, proteinas: number, grasas:number,hidratos:number, azucares:number, id?: string ){
         // this.nombre=nombre;
         // this.calorias=calorias;
         // this.proteinas=proteinas;

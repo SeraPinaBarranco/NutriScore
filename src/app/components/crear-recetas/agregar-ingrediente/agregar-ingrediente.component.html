@@ -10,8 +10,10 @@
         <option selected disabled> </option>
         <option *ngFor="let i of productos">{{i.nombre}} </option>
     </select>
-
-    <input formControlName="cantidad" class="form-control mt-3" type="number" name="cantidad" id="catidad" placeholder="Introduce cantidad" #cantidad>
+    <div class="form-floating">
+      <input formControlName="cantidad" class="form-control mt-3 box" type="number" name="cantidad" id="cantidad" placeholder="Introduce cantidad" #cantidad>
+      <label for="cantidad" style="text-align: right;">gramos</label>
+    </div>
     <button class="btn btn-primary mt-2" (click)="addNewItem(producto.value, +cantidad.value)" type="button" >Agregar</button>
 
   </form>

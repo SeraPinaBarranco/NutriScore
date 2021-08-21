@@ -15,4 +15,5 @@ export interface Totales {
   totalProteinas: number;
   totalGrasas:    number;
   totalHidratos:  number;
+  totalAzucares: number;
 }

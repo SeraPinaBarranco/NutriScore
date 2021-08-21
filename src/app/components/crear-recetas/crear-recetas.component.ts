@@ -42,6 +42,7 @@ export class CrearRecetasComponent implements OnInit {
       totalProteinas: productoFilter[0].proteinas * n,
       totalGrasas: productoFilter[0].grasas * n,
       totalHidratos: productoFilter[0].hidratos * n,
+      totalAzucares: productoFilter[0].azucares * n,
     });
 
     //llenar el array de Totales
@@ -61,6 +62,7 @@ export class CrearRecetasComponent implements OnInit {
           proteinas: p.payload.doc.data().proteinas,
           grasas: p.payload.doc.data().grasas,
           hidratos: p.payload.doc.data().hidratos,
+          azucares: p.payload.doc.data().azucares
         };
 
         this.listadoProductos.push(producto);
