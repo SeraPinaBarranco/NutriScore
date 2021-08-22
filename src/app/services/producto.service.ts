@@ -16,7 +16,7 @@ export class ProductoService {
   constructor(private firestore: AngularFirestore, private router:Router) { }
 
   obternerProductos():Observable<any>{
-    return this.firestore.collection('productos').snapshotChanges();
+    return this.firestore.collection('productos',ref=> ref.orderBy('nombre','asc')).snapshotChanges();
   }
 
   guardarProducto(producto:Productos):Promise<any>{
@@ -39,6 +39,6 @@ export class ProductoService {
   }
 
   editProducto(id:string,producto:Productos):Promise<any>{
-    return this.firestore.firestore.collection('productos').doc(id).update(producto);    
+    return this.firestore.firestore.collection('productos').doc(id).update(producto);
   }
 }

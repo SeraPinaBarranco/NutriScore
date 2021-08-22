@@ -4,6 +4,37 @@
       <app-spinner></app-spinner>
     </div>
 
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Grasas</th>
+          <th scope="col">Proteinas</th>
+          <th scope="col">Calorias</th>
+          <th scope="col">Hidratos</th>
+          <th scope="col">Azucares</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let elemento of listaProductos">
+          <td >{{elemento.nombre}}</td>
+          <td >{{elemento.grasas}}</td>
+          <td >{{elemento.proteinas}}</td>
+          <td >{{elemento.calorias}}</td>
+          <td >{{elemento.hidratos}}</td>
+          <td >{{elemento.azucares}}</td>
+          <td>
+            <a class="pointer" style="color: #187880" routerLink="/edit/{{elemento.id}}"  > <mat-icon>edit</mat-icon> </a>
+            <a class="pointer" style="color: #E15639" (click)="eliminarProducto(elemento.id)"> <mat-icon>delete</mat-icon> </a>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+
+
     <table *ngIf="!mostrarSpinner" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!--<table>-->
         <!--- Note that these columns can be defined in any order.

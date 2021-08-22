@@ -73,22 +73,24 @@ export class ListarProductosComponent implements OnInit {
 
   }
 
-  eliminarProducto(id:string){
-    this._productoService.eliminarProducto(id).then( res=>{
-      this.llenarArrayProductos();
-      swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Información de Registro',
-        text:`Producto eliminado con exito!!!`,
-        showConfirmButton: false,
-        timer: 1500 });
+  eliminarProducto(id:string|undefined){
+    if(id){
+      this._productoService.eliminarProducto(id).then( res=>{
+        this.llenarArrayProductos();
+        swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Información de Registro',
+          text:`Producto eliminado con exito!!!`,
+          showConfirmButton: false,
+          timer: 1500 });
 
 
-    },error=>{
-      console.log(error);
-      //this.toastr.error("Error al eliminar la tarjeta",error);
-    });
+      },error=>{
+        console.log(error);
+        //this.toastr.error("Error al eliminar la tarjeta",error);
+      });
+    }
   }
 
   addProductoEdit(objeto:Productos){
