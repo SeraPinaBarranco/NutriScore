@@ -1,8 +1,12 @@
 table{
-    /*width: 100%;*/
+    width: auto;
+    /* overflow: auto;
+    position: fixed, scroll; */
+
     text-align: center;
 }
 
 .pointer{
     cursor: pointer;
 }
+
