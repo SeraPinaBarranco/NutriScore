@@ -23,6 +23,7 @@ import { CrearRecetaComponent } from './components/crear-receta/crear-receta.com
 import { CrearRecetasComponent } from './components/crear-recetas/crear-recetas.component';
 import { AgregarIngredienteComponent } from './components/crear-recetas/agregar-ingrediente/agregar-ingrediente.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FiltroPipe } from './pipes/filtro.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { FooterComponent } from './components/footer/footer.component';
     CrearRecetaComponent,
     CrearRecetasComponent,
     AgregarIngredienteComponent,
-    FooterComponent
+    FooterComponent,
+    FiltroPipe
   ],
   imports: [
     BrowserModule,

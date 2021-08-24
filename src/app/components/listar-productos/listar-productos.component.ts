@@ -13,6 +13,7 @@ export class ListarProductosComponent implements OnInit {
   product: Productos;
   listaProductos: Productos[] = [];
   mostrarSpinner = false;
+  miFiltro='';
 
   columnas: string[] = [
     'nombre',

@@ -4,18 +4,22 @@
       <app-spinner></app-spinner>
     </div>
 
+    <div class="row m-2">
+      <input class="form-control" type="text" name="miFiltro" id="" [(ngModel)]="miFiltro">
+    </div>
+
     <div class="container mb-5">
       <div class="grid-container" >
 
-        <div class="grid-item" *ngFor="let elemento of listaProductos">
+        <div class="grid-item" *ngFor="let elemento of listaProductos | filtro:miFiltro">
           <span class="mb-1">{{elemento.nombre}}</span>
-          
+
           <div>
             <a class="pointer" style="color: #187880" routerLink="/edit/{{elemento.id}}"  > <mat-icon>edit</mat-icon> </a>
             <a class="pointer" style="color: #E15639" (click)="eliminarProducto(elemento.id)"> <mat-icon>delete</mat-icon> </a>
           </div>
-          
-          <div class="grid-container-lista">            
+
+          <div class="grid-container-lista">
             <span >Grasas: {{elemento.grasas}}</span>
             <span >Proteinas: {{elemento.proteinas}}</span>
             <span >Calorias: {{elemento.calorias}}</span>
@@ -23,10 +27,10 @@
             <span >Azucares: {{elemento.azucares}}</span>
           </div>
         </div>
-        
+
       </div>
     </div>
-<!-- 
+<!--
     <table class="table">
       <thead>
         <tr>
@@ -58,10 +62,10 @@
 
 </div>
 
-<!-- 
+<!--
 <div class="container">
     <table *ngIf="!mostrarSpinner" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      
+
         <ng-container matColumnDef="nombre">
           <th mat-header-cell *matHeaderCellDef> Nombre </th>
           <span mat-cell *matCellDef="let element"> {{element.nombre}} </span>
@@ -99,7 +103,7 @@
             <a class="pointer" style="color: #E15639" (click)="eliminarProducto(element.id)"> <mat-icon>delete</mat-icon> </a>
           </span>
         </ng-container>
-       
+
 
         <tr mat-header-row *matHeaderRowDef="columnas"></tr>
         <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
