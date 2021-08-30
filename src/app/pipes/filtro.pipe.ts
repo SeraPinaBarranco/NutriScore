@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FiltroPipe implements PipeTransform {
 
-  transform(value: any, arg: any): any {
+  transform(value: any, arg: any,pagina:number): any {
     const resultadoFiltro= [];
     //arg es lo que se escribe
     //value es el array
@@ -15,7 +15,7 @@ export class FiltroPipe implements PipeTransform {
         resultadoFiltro.push(resultado);
       }
     }
-
+    console.log(pagina);
     return resultadoFiltro;
   }
 

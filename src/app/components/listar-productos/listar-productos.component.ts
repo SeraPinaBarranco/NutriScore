@@ -14,6 +14,7 @@ export class ListarProductosComponent implements OnInit {
   listaProductos: Productos[] = [];
   mostrarSpinner = false;
   miFiltro='';
+  pagina= 0;
 
   columnas: string[] = [
     'nombre',
@@ -101,6 +102,13 @@ export class ListarProductosComponent implements OnInit {
     }
   }
 
+  paginaMas(){
+    this.pagina += 5;
+  }
+
+  paginaMenos(){
+    if(this.pagina != 0)this.pagina -=5;
+  }
 
 }
 

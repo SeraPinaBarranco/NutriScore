@@ -5,13 +5,16 @@
     </div>
 
     <div class="row m-2">
-      <input class="form-control" type="text" name="miFiltro" id="" [(ngModel)]="miFiltro">
+      <div class="form-floating">
+        <input class="form-control" type="text" name="miFiltro" id="" [(ngModel)]="miFiltro">
+        <label for="miFiltro" style="text-align: right;">Introduce el texto a filtrar</label>
+      </div>
     </div>
 
     <div class="container mb-5">
       <div class="grid-container" >
 
-        <div class="grid-item" *ngFor="let elemento of listaProductos | filtro:miFiltro">
+        <div class="grid-item" *ngFor="let elemento of listaProductos | filtro:miFiltro:pagina">
           <span class="mb-1">{{elemento.nombre}}</span>
 
           <div>
@@ -30,37 +33,45 @@
 
       </div>
     </div>
-<!--
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Nombre</th>
-          <th scope="col">Grasas</th>
-          <th scope="col">Proteinas</th>
-          <th scope="col">Calorias</th>
-          <th scope="col">Hidratos</th>
-          <th scope="col">Azucares</th>
-          <th scope="col">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let elemento of listaProductos">
-          <span >{{elemento.nombre}}</span>
-          <span >{{elemento.grasas}}</span>
-          <span >{{elemento.proteinas}}</span>
-          <span >{{elemento.calorias}}</span>
-          <span >{{elemento.hidratos}}</span>
-          <span >{{elemento.azucares}}</span>
-          <span>
-            <a class="pointer" style="color: #187880" routerLink="/edit/{{elemento.id}}"  > <mat-icon>edit</mat-icon> </a>
-            <a class="pointer" style="color: #E15639" (click)="eliminarProducto(elemento.id)"> <mat-icon>delete</mat-icon> </a>
-          </span>
+    <hr>
+    <div class="row">
+      <div class="d-flex justify-content-center">
 
-        </tr>
-      </tbody>
-    </table> -->
+        <button class="btn mx-3 adelanteatras" (click)="paginaMenos()">Anterior</button>
+        <button class="btn mx-3 adelanteatras" (click)="paginaMas()">Siguiente</button>
+      </div>
+    </div>
 
-</div>
+  </div>
+  <!--
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Grasas</th>
+            <th scope="col">Proteinas</th>
+            <th scope="col">Calorias</th>
+            <th scope="col">Hidratos</th>
+            <th scope="col">Azucares</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let elemento of listaProductos">
+            <span >{{elemento.nombre}}</span>
+            <span >{{elemento.grasas}}</span>
+            <span >{{elemento.proteinas}}</span>
+            <span >{{elemento.calorias}}</span>
+            <span >{{elemento.hidratos}}</span>
+            <span >{{elemento.azucares}}</span>
+            <span>
+              <a class="pointer" style="color: #187880" routerLink="/edit/{{elemento.id}}"  > <mat-icon>edit</mat-icon> </a>
+              <a class="pointer" style="color: #E15639" (click)="eliminarProducto(elemento.id)"> <mat-icon>delete</mat-icon> </a>
+            </span>
+
+          </tr>
+        </tbody>
+      </table> -->
 
 <!--
 <div class="container">
