@@ -17,14 +17,14 @@ export class FiltroPipe implements PipeTransform {
       }
     }*/
     console.log(pagina);
-    if(filtro.length === 0) return value = value.slice(pagina, pagina + 2);
+    if(filtro.length === 0) return value = value.slice(pagina, pagina + 3);
 
     //resultadoFiltro = value.slice(pagina, pagina + 2);
 
     //
-    const resultadoFiltro = value.filter( prod => prod.nombre.includes(filtro));
+    const resultadoFiltro = value.filter( prod => prod.nombre.toLowerCase().includes(filtro.toLowerCase()));
 
-    return resultadoFiltro.slice(pagina, pagina + 2);
+    return resultadoFiltro.slice(pagina, pagina + 3);
   }
 
 }
