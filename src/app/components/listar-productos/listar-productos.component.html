@@ -6,7 +6,7 @@
 
     <div class="row m-2">
       <div class="form-floating">
-        <input class="form-control" type="text" name="miFiltro" id="" [(ngModel)]="miFiltro">
+        <input class="form-control" type="text" name="miFiltro" id="" [(ngModel)]="miFiltro" (keyup)="teclearFiltro()">
         <label for="miFiltro" style="text-align: right;">Introduce el texto a filtrar</label>
       </div>
     </div>
