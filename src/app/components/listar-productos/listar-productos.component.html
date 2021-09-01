@@ -37,11 +37,12 @@
     <div class="row">
       <div class="d-flex justify-content-center">
 
-        <button class="btn mx-3 adelanteatras" (click)="paginaMenos()">Anterior</button>
-        <button class="btn mx-3 adelanteatras" (click)="paginaMas()">Siguiente</button>
+        <button class="btn mx-3 adelanteatras" [disabled]="pagina === 0" (click)="paginaMenos()">Anterior</button>
+        <button class="btn mx-3 adelanteatras" [disabled]="pagina >= (listaProductos.length-(listaProductos.length%3))" (click)="paginaMas()">Siguiente</button>
       </div>
     </div>
-
+    {{listaProductos.length}}
+    {{listaProductos.length%3}}
   </div>
   <!--
       <table class="table">

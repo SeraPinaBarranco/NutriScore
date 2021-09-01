@@ -103,11 +103,12 @@ export class ListarProductosComponent implements OnInit {
   }
 
   paginaMas(){
-    this.pagina += 3;
+    if(this.pagina < this.listaProductos.length)
+      this.pagina += 6;
   }
 
   paginaMenos(){
-    if(this.pagina != 0)this.pagina -= 3;
+    if(this.pagina != 0)this.pagina -= 6;
   }
 
   teclearFiltro(){

@@ -17,7 +17,7 @@ export class FiltroPipe implements PipeTransform {
       }
     }*/
     console.log(pagina);
-    if(filtro.length === 0) return value = value.slice(pagina, pagina + 3);
+    if(filtro.length === 0) return value = value.slice(pagina, pagina + 6);
 
     //resultadoFiltro = value.slice(pagina, pagina + 2);
 
