@@ -6,7 +6,7 @@ import { AgregarIngredienteComponent } from './components/crear-recetas/agregar-
 import { CrearRecetasComponent } from './components/crear-recetas/crear-recetas.component';
 import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
 import { ListarProductosComponent } from './components/listar-productos/listar-productos.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { ListarRecetasComponent } from './components/listar-recetas/listar-recetas.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/listar-productos', pathMatch: 'full' },
@@ -14,7 +14,8 @@ const routes: Routes = [
   {path:'listar-productos', component: ListarProductosComponent},
   {path:'crear-receta', component: CrearRecetaComponent},
   {path:'crear-recetas', component: CrearRecetasComponent},
-    {path:'add-ingrediente', component: AgregarIngredienteComponent},
+  {path:'add-ingrediente', component: AgregarIngredienteComponent},
+  {path: 'listar-recetas',component: ListarRecetasComponent},
   {path:'edit/:slug', component: EditarProductoComponent}
 ];
 

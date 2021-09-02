@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, from } from 'rxjs';
+import { IngredientesInterface } from '../models/ingredientes-interface';
 import { Productos } from '../models/productos.model';
 import { Recetas } from '../models/recetas.model';
 
@@ -17,6 +18,10 @@ export class ProductoService {
 
   obternerProductos():Observable<any>{
     return this.firestore.collection('productos',ref=> ref.orderBy('nombre','asc')).snapshotChanges();
+  }
+
+  obtenerRecetas():Observable<any>{
+    return this.firestore.collection('recetas', ref => ref.orderBy('nombre','asc')).snapshotChanges();
   }
 
   guardarProducto(producto:Productos):Promise<any>{

@@ -8,8 +8,7 @@ export class Recetas{
 class Ingredientes{
     producto:string;
     cantidad:number;
-    constructor(producto:string,
-                cantidad:number){}
+    constructor(){}
 }
 
 class Totales {

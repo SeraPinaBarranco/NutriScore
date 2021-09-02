@@ -15,7 +15,7 @@
       <div class="grid-container" >
 
         <div class="grid-item" *ngFor="let elemento of listaProductos | filtro:miFiltro:pagina">
-          <span class="mb-1">{{elemento.nombre}}</span>
+          <span class="mb-1"> <strong>{{elemento.nombre}}</strong></span>
 
           <div>
             <a class="pointer" style="color: #187880" routerLink="/edit/{{elemento.id}}"  > <mat-icon>edit</mat-icon> </a>
